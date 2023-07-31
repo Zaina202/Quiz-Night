@@ -89,6 +89,7 @@ const Quiz = () => {
       setShowResult(true);
     }
   };
+  
 
   const handleNextRound = () => {
     setShowResult(false);
@@ -110,8 +111,8 @@ const Quiz = () => {
         <div className="correct-answers">
           {categoryQuestions.map((question, index) => (
             <div key={index} className="question-answer">
-              <p>Question {index + 1}: {question.question}</p>
-              <p>Correct Answer: {question.correctAnswer}</p>
+              <p>السؤال  {index + 1}: {question.question}</p>
+              <p>الأجابة الصحيحة: {question.correctAnswer}</p>
             </div>
           ))}
         </div>
@@ -120,33 +121,31 @@ const Quiz = () => {
   };
 
   return (
-    <div
-      className={styles['quiz-container']}
-      style={{
-        backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '',
-      }}
-    >
+    <div className={styles['quiz-container']} style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}>
       {showResult ? (
         renderResult()
       ) : (
         <div>
           <h2>{data[categories[currentCategoryIndex]].categoryTitle}</h2>
-          <h3>Question {currentQuestionIndex + 1}</h3>
+          <h3>السؤال {currentQuestionIndex + 1}</h3>
           <p>{data[categories[currentCategoryIndex]].questions[currentQuestionIndex].question}</p>
-          {Object.keys(data[categories[currentCategoryIndex]].questions[currentQuestionIndex]).map(
-            (answerKey) => {
+
+          {/* Modified mapping logic for rendering answer choices */}
+          <div className={styles['choices-container']}>
+            {Object.keys(data[categories[currentCategoryIndex]].questions[currentQuestionIndex]).map((answerKey, index) => {
               if (answerKey.startsWith('answer')) {
+                const choice = data[categories[currentCategoryIndex]].questions[currentQuestionIndex][answerKey];
                 return (
-                  <div key={answerKey}>
-                    <p>
-                      {data[categories[currentCategoryIndex]].questions[currentQuestionIndex][answerKey]}
-                    </p>
+                  <div key={answerKey} className={styles['choice-item']}>
+                    <span className={styles['choice-number']}>{index}: </span>
+                    <span className={styles['choice-text']}>{choice}</span>
                   </div>
                 );
               }
               return null;
-            }
-          )}
+            })}
+          </div>
+
           <Button
             label={
               currentQuestionIndex + 1 < data[categories[currentCategoryIndex]].questions.length
@@ -160,5 +159,6 @@ const Quiz = () => {
     </div>
   );
 };
+
 
 export default Quiz;
