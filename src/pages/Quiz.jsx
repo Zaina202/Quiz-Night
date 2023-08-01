@@ -139,7 +139,7 @@ const Quiz = () => {
           {isLastRound ? (
       <button onClick={() => navigate('/')} className={styles['button1']}>النهاية</button>
       ) : (
-        <button onClick={handleNextRound} className={styles['button1']}>الجولى التالية</button>
+        <button onClick={handleNextRound} className={styles['button1']}>الجولة التالية</button>
           )}
         </div>
       </div>
@@ -162,7 +162,7 @@ const Quiz = () => {
       renderResult()
     ) : showRoundTitle ? (
       <div>
-        <h1>{`الجولى ${currentCategoryIndex + 1}`}</h1>
+        <h1>{`الجولة ${currentCategoryIndex + 1}`}</h1>
         <h2>{data[categories[currentCategoryIndex]].categoryTitle}</h2>
       </div>
     ) : (
