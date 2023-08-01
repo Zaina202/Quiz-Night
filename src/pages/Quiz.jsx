@@ -125,7 +125,7 @@ const Quiz = () => {
 
     return (
       <div className="result">
-        <h3>Round Result</h3>
+        <h3>ورقة الاجابة</h3>
         <div className="correct-answers">
           {categoryQuestions.map((question, index) => (
             <div key={index} className="question-answer">
@@ -137,9 +137,9 @@ const Quiz = () => {
         <div>
           {/* Show "Finish" button if it's the last round, otherwise show "Next Round" button */}
           {isLastRound ? (
-            <button onClick={() => navigate('/')}>Finish</button>
-          ) : (
-            <button onClick={handleNextRound}>Next Round</button>
+      <button onClick={() => navigate('/')} className={styles['button1']}>النهاية</button>
+      ) : (
+        <button onClick={handleNextRound} className={styles['button1']}>الجولى التالية</button>
           )}
         </div>
       </div>
