@@ -1,5 +1,106 @@
 .quiz-container {
-    background-size: cover; /* This property makes the background image cover the entire container */
-    background-position: center center; /* This property centers the background image within the container */
-    height: 100vh; /* Set the height to 100vh to cover the entire viewport height */
-  }
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.quiz-container > div {
+  margin-top: 100px;
+  max-width: 500px;
+  padding: 20px;
+  background-color: transparent;
+}
+.choices-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Each row will have two columns with equal width */
+  grid-gap: 5px; /* Add spacing between each row and each column */
+}
+
+.choice-item {
+  padding: 8px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 10px 10px 10px 0;
+}
+.choice-number{
+  color: rgb(255, 217, 0);
+  font-weight: bold;
+  text-align: left;
+}
+
+.quiz-container h2 {
+  background-color: white;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #555;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.quiz-container h3 {
+  background-color: white;
+  font-size: smaller;
+  margin-bottom: 10px;
+  color: #555;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 10px ;
+  width: max-content;
+}
+
+.quiz-container p {
+  background-color: white;
+  margin-bottom: 10px;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.answersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* This will create space between two choices */
+}
+
+.answer {
+  width: calc(50% - 5px); /* Set the width of each choice to 50% of the container minus margin */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px; /* Adjust the margin to create space between choices */
+  transition: background-color 0.3s ease;
+}
+
+.answer:hover {
+  background-color: #f0f0f0;
+}
+
+.result {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.result h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.correct-answers {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.question-answer {
+  margin-bottom: 10px;
+}
