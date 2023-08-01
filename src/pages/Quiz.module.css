@@ -12,22 +12,40 @@
 
 .quiz-container > div {
   margin-top: 100px;
-  max-width: 500px;
+  width: 100%; 
   padding: 20px;
   background-color: transparent;
+  max-width: 1000px;
 }
+
 .choices-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Each row will have two columns with equal width */
-  grid-gap: 5px; /* Add spacing between each row and each column */
+  grid-template-columns: repeat(2, 1fr); 
+  grid-gap: 5px; 
 }
 
 .choice-item {
+  position: relative;
+  width: 90%;
   padding: 8px;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 30px;
   padding: 10px 10px 10px 0;
+  z-index: 2;
+}
+
+.choice-item::after{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% - 5px);
+  height: 2px;
+  background: white;
+  content: "";
+  width: 100vw; 
+  transform: translateX(-50%);
+  z-index: 1;
 }
 .choice-number{
   color: rgb(255, 217, 0);
@@ -36,6 +54,7 @@
 }
 
 .quiz-container h2 {
+  position: relative;
   background-color: white;
   font-size: 24px;
   margin-bottom: 10px;
@@ -45,18 +64,23 @@
   padding: 10px;
 }
 
+
 .quiz-container h3 {
+  position: relative;
   background-color: white;
   font-size: smaller;
   margin-bottom: 10px;
   color: #555;
   border: 1px solid #ccc;
   padding: 5px;
-  border-radius: 10px ;
-  width: max-content;
+  border-radius: 10px;
+  text-align: right; 
+  width: max-content; 
+  margin-left: auto; 
 }
 
 .quiz-container p {
+  position: relative;
   background-color: white;
   margin-bottom: 10px;
   color: #333;
@@ -65,19 +89,20 @@
   border-radius: 30px;
 }
 
+
 .answersContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* This will create space between two choices */
+  justify-content: space-between; 
 }
 
 .answer {
-  width: calc(50% - 5px); /* Set the width of each choice to 50% of the container minus margin */
+  width: calc(50% - 5px); 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
-  margin: 5px; /* Adjust the margin to create space between choices */
+  margin: 5px; 
   transition: background-color 0.3s ease;
 }
 
@@ -104,3 +129,20 @@
 .question-answer {
   margin-bottom: 10px;
 }
+.button1{
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  .button1:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }

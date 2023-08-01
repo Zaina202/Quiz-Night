@@ -126,9 +126,9 @@ const Quiz = () => {
         renderResult()
       ) : (
         <div>
-          <h2>{data[categories[currentCategoryIndex]].categoryTitle}</h2>
-          <h3>السؤال {currentQuestionIndex + 1}</h3>
-          <p>{data[categories[currentCategoryIndex]].questions[currentQuestionIndex].question}</p>
+          <h2 className="line">{data[categories[currentCategoryIndex]].categoryTitle}</h2>
+          <h3 style={{ textAlign: 'right' }}>السؤال {currentQuestionIndex + 1}<span className="line"></span></h3>
+          <p>{data[categories[currentCategoryIndex]].questions[currentQuestionIndex].question}<span className="line"></span></p>
 
           {/* Modified mapping logic for rendering answer choices */}
           <div className={styles['choices-container']}>
