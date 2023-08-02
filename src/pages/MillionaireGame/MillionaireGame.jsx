@@ -54,29 +54,29 @@ const MillionaireGame = () => {
     return (
       <div>
         <h2>{currentQuestion.question}</h2>
-        <div className={styles.answerContainer}>
+        <div className={styles['choices-container']}>
           {!showResult && (
             <>
               <div 
-               className={`${styles.answer} ${selectedAnswer === currentQuestion.answer1 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
+               className={`${styles.choiceItem} ${selectedAnswer === currentQuestion.answer1 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
                onClick={() => handleAnswerSelection(currentQuestion.answer1)}
               >
                 {currentQuestion.answer1}
               </div>
               <div 
-               className={`${styles.answer} ${selectedAnswer === currentQuestion.answer2 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
+               className={`${styles.choiceItem} ${selectedAnswer === currentQuestion.answer2 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
                onClick={() => handleAnswerSelection(currentQuestion.answer2)}
                >
                 {currentQuestion.answer2}
               </div>
               <div 
-              className={`${styles.answer} ${selectedAnswer === currentQuestion.answer3 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
+              className={`${styles.choiceItem} ${selectedAnswer === currentQuestion.answer3 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
               onClick={() => handleAnswerSelection(currentQuestion.answer3)} 
               >
                 {currentQuestion.answer3}
               </div>
               <div 
-              className={`${styles.answer} ${selectedAnswer === currentQuestion.answer4 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
+              className={`${styles.choiceItem} ${selectedAnswer === currentQuestion.answer4 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
               onClick={() => handleAnswerSelection(currentQuestion.answer4)}
               >
                 {currentQuestion.answer4}
@@ -94,7 +94,6 @@ const MillionaireGame = () => {
 
   return (
     <div className={styles['quiz-container']} style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}>
-      <h2>Who Wants To Be A Millionaire?</h2>
       {!showResult ? renderQuestion() : <ResultPage score={score} />}
     </div>
   );

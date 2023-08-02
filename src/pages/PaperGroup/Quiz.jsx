@@ -173,32 +173,32 @@ const Quiz = () => {
 
           {showOptions && (
             <div className={styles['choices-container']}>
-              <div className={styles['choice-item']}>
-                <span className={styles['choice-number']}>1: </span>
-                <span className={styles['choice-text']}>
+              <div className={styles['choiceItem']}>
+                <span className={styles['choiceNumber']}>1: </span>
+                <span className={styles['choiceText']}>
                   {data[categories[currentCategoryIndex]].questions[currentQuestionIndex].answer1}
                 </span>
               </div>
               {currentOptionIndex >= 1 && (
-                <div className={styles['choice-item']}>
-                  <span className={styles['choice-number']}>2: </span>
-                  <span className={styles['choice-text']}>
+                <div className={styles['choiceItem']}>
+                  <span className={styles['choiceNumber']}>2: </span>
+                  <span className={styles['choiceText']}>
                     {data[categories[currentCategoryIndex]].questions[currentQuestionIndex].answer2}
                   </span>
                 </div>
               )}
               {currentOptionIndex >= 2 && (
-                <div className={styles['choice-item']}>
-                  <span className={styles['choice-number']}>3: </span>
-                  <span className={styles['choice-text']}>
+                <div className={styles['choiceItem']}>
+                  <span className={styles['choiceNumber']}>3: </span>
+                  <span className={styles['choiceText']}>
                     {data[categories[currentCategoryIndex]].questions[currentQuestionIndex].answer3}
                   </span>
                 </div>
               )}
               {currentOptionIndex >= 3 && (
-                <div className={styles['choice-item']}>
-                  <span className={styles['choice-number']}>4: </span>
-                  <span className={styles['choice-text']}>
+                <div className={styles['choiceItem']}>
+                  <span className={styles['choiceNumber']}>4: </span>
+                  <span className={styles['choiceText']}>
                     {data[categories[currentCategoryIndex]].questions[currentQuestionIndex].answer4}
                   </span>
                 </div>
