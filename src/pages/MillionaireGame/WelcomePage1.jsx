@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './WelcomePage.module.css';
+import styles from '../PaperGroup/WelcomePage.module.css';
 import style from './WelcomePage1.module.css';
 
 const WelcomePage1 = () => { 

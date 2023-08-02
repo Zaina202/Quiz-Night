@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
-import WelcomePage1 from './pages/WelcomePage1';
-import Quiz from './pages/Quiz';
-import WelcomePage from './pages/WelcomePage';
-import WelcomePage2 from './pages/WelcomePage2';
-import MillionaireGame from './pages/MillionaireGame';
+import WelcomePage1 from './pages/MillionaireGame/WelcomePage1';
+import Quiz from './pages/PaperGroup/Quiz';
+import WelcomePage from './pages/PaperGroup/WelcomePage';
+import WelcomePage2 from './pages/MillionaireGame/WelcomePage2';
+import MillionaireGame from './pages/MillionaireGame/MillionaireGame';
 
 ReactDOM.render(
   <React.StrictMode>

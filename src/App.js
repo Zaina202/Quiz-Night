@@ -1,5 +1,5 @@
 import React from 'react';
-import WelcomePage1 from './pages/WelcomePage1';
+import WelcomePage1 from './pages/MillionaireGame/WelcomePage1';
 
 function App() {
   return (

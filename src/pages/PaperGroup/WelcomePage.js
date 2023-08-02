@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import {  useNavigate } from 'react-router-dom';
 import styles from './WelcomePage.module.css';
-import Design1 from './images/Design1.png';
-import Design2 from './images/Design2.png';
+import Design1 from '../images/Design1.png';
+import Design2 from '../images/Design2.png';
+import {  useNavigate } from 'react-router-dom';
 
-const WelcomePage2 = () => {
+const WelcomePage = () => {
   const navigate = useNavigate();
   const [selectedThemeImage, setSelectedThemeImage] = useState(null);
 
   const handleThemeSelect = (themeImage) => {
     setSelectedThemeImage(themeImage);
-    navigate(`/millionaire?theme=${encodeURIComponent(themeImage)}`);
+    navigate(`/quiz?theme=${encodeURIComponent(themeImage)}`);
   };
 
   return (
@@ -48,4 +48,4 @@ const WelcomePage2 = () => {
   );
 };
 
-export default WelcomePage2;
+export default WelcomePage;
