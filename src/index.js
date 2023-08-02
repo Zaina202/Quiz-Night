@@ -7,6 +7,7 @@ import Quiz from './pages/PaperGroup/Quiz';
 import WelcomePage from './pages/PaperGroup/WelcomePage';
 import WelcomePage2 from './pages/MillionaireGame/WelcomePage2';
 import MillionaireGame from './pages/MillionaireGame/MillionaireGame';
+import ResultPage from './pages/MillionaireGame/ResultPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
         <Route path="/millionaire" element={<MillionaireGame />} /> {/* Who Wants To Be A Millionaire? */}
         <Route path="/welcome" element={<WelcomePage />} /> {/* WelcomePage for the first game (Paper Group) */}
         <Route path="/welcome2" element={<WelcomePage2 />} /> {/* WelcomePage for the secound game (Who Wants To Be A Millionaire?) */}
+        <Route path="/result" element={<ResultPage />} /> {/* Result Page for the secound game (Who Wants To Be A Millionaire?) */}
       </Routes>
     </Router>
   </React.StrictMode>,
