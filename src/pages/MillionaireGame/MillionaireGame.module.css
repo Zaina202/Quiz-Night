@@ -1,0 +1,8 @@
+.correctAnswer {
+    background-color: #4caf50; 
+    color: #ffffff; 
+  }
+  .wrongAnswer {
+    background-color: #f44336; 
+    color: #ffffff; 
+  }
