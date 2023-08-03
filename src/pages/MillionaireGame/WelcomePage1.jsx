@@ -52,6 +52,25 @@ const WelcomePage1 = () => {
               </h4>
             </div>
           </div>
+          <div className={`${styles.theme} ${style.flip}`}>
+            <div className={style.card}>
+              <div className={style.cardInner}>
+                <div className={style.cardFront}>
+                  <div className={style.millionaire} />
+                </div>
+                <div className={style.cardBack}>
+                  <p> Guess popular answers, reveal as contestants guess, earn points on temporary scoreboard. Transfer points to main scoreboards, progressing through questions.</p>
+                </div>
+              </div>
+            </div>
+            <div className={styles.title}>
+              <h4>
+                <b>
+                  <Link to="/welcome3" className={style.link}>Family Feud</Link>
+                </b>
+              </h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
