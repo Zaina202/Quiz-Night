@@ -1,3 +1,12 @@
+h1{
+  color: white;
+  width: 30%;
+
+}
+h5{
+  color: white;
+  width: max-content;
+}
 .link {
     text-decoration: none;
     color: #333;
@@ -12,8 +21,53 @@
     width: 100%;
     height: 150px;
     object-fit: cover;
-    background-color: #587fa8;
+    background-color: #ff8800;
+    color: #ff8800;
   }
   .millionaire {
-background-color: #70526e;
+background-color: #ff8800;
+  }
+  
+  .card {
+    perspective: 1000px;
+    width: 100%;
+    height: 150px;
+  }
+  
+  .cardInner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  
+  .card:hover .cardInner {
+    transform: rotateY(180deg);
+  }
+  
+  .cardFront,
+  .cardBack {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cardFront {
+    background-color: #587fa8;
+  }
+  
+  .cardBack {
+    background-color: #00948d;
+    transform: rotateY(180deg);
+  }
+  
+  .cardBack p {
+    color: white;
+    margin: 5px;
   }
