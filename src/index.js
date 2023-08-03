@@ -8,6 +8,7 @@ import WelcomePage from './pages/PaperGroup/WelcomePage';
 import WelcomePage2 from './pages/MillionaireGame/WelcomePage2';
 import MillionaireGame from './pages/MillionaireGame/MillionaireGame';
 import ResultPage from './pages/MillionaireGame/ResultPage';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 ReactDOM.render(
   <React.StrictMode>

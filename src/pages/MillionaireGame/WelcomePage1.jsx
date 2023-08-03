@@ -10,7 +10,7 @@ const WelcomePage1 = () => {
     <div className={styles.container}>
       <h1>Welcom to Quiz Fast contast ... Share in different contsats to test your self !</h1>
       <div className={styles.mainContainer}>
-        <h2>اختر نوع اللعبة</h2>
+        <h2>Choose the type of game</h2>
         <div className={styles.themeContainer}>
           <div className={`${styles.theme} ${style.flip}`}>
             <div className={style.card}>

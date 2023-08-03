@@ -46,51 +46,54 @@ const MillionaireGame = () => {
   };
 
   
-
   const renderQuestion = () => {
     const currentQuestion = questions[currentQuestionIndex];
     const isCorrect = selectedAnswer === currentQuestion.correctAnswer;
-
+    const isAnswered = selectedAnswer !== null;
+  
     return (
       <div>
         <h2>{currentQuestion.question}</h2>
         <div className={styles['choices-container']}>
           {!showResult && (
             <>
-              <div 
-               className={`${styles.choiceItem} ${selectedAnswer === currentQuestion.answer1 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
-               onClick={() => handleAnswerSelection(currentQuestion.answer1)}
+              <div
+                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer1 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer1 ? style.correctAnswer : '')) : ''}`}
+                onClick={() => handleAnswerSelection(currentQuestion.answer1)}
               >
                 {currentQuestion.answer1}
               </div>
-              <div 
-               className={`${styles.choiceItem} ${selectedAnswer === currentQuestion.answer2 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
-               onClick={() => handleAnswerSelection(currentQuestion.answer2)}
-               >
+              <div
+                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer2 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer2 ? style.correctAnswer : '')) : ''}`}
+                onClick={() => handleAnswerSelection(currentQuestion.answer2)}
+              >
                 {currentQuestion.answer2}
               </div>
-              <div 
-              className={`${styles.choiceItem} ${selectedAnswer === currentQuestion.answer3 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
-              onClick={() => handleAnswerSelection(currentQuestion.answer3)} 
+              <div
+                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer3 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer3 ? style.correctAnswer : '')) : ''}`}
+                onClick={() => handleAnswerSelection(currentQuestion.answer3)}
               >
                 {currentQuestion.answer3}
               </div>
-              <div 
-              className={`${styles.choiceItem} ${selectedAnswer === currentQuestion.answer4 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : ''}`}
-              onClick={() => handleAnswerSelection(currentQuestion.answer4)}
+              <div
+                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer4 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer4 ? style.correctAnswer : '')) : ''}`}
+                onClick={() => handleAnswerSelection(currentQuestion.answer4)}
               >
                 {currentQuestion.answer4}
               </div>
               <div>
-            <button onClick={handleNextQuestion} className={styles.nextButton}>
-              {currentQuestionIndex + 1 < questions.length ? 'Next Question' : 'Finish'}
-            </button>
-          </div>
-            </>   )}
-    </div>
-    </div>
-  );
-};
+                <button onClick={handleNextQuestion} className={styles.nextButton}>
+                  {currentQuestionIndex + 1 < questions.length ? 'Next Question' : 'Finish'}
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  };
+  
+  
 
   return (
     <div className={styles['quiz-container']} style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}>
