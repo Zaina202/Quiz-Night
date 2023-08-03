@@ -24,7 +24,7 @@
   grid-gap: 5px; 
 }
 
-.choice-item {
+.choiceItem {
   position: relative;
   width: 90%;
   padding: 8px;
@@ -35,7 +35,7 @@
   z-index: 2;
 }
 
-.choice-item::after{
+/* .choiceItem::after{
   position: absolute;
   left: 0;
   right: 0;
@@ -46,8 +46,8 @@
   width: 100vw; 
   transform: translateX(-50%);
   z-index: 1;
-}
-.choice-number{
+} */
+.choiceNumber{
   color: rgb(255, 217, 0);
   font-weight: bold;
   text-align: left;
@@ -140,10 +140,31 @@
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
+  
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
   .button1:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+  .nextButton{
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 50px;
+    margin-right:-20px ;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  .nextButton:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+
   }
 

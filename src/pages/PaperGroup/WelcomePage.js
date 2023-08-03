@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from './WelcomePage.module.css';
-import Design1 from './images/Design1.png';
-import Design2 from './images/Design2.png';
-import { Link, useNavigate } from 'react-router-dom';
+import Design1 from '../images/Design1.png';
+import Design2 from '../images/Design2.png';
+import {  useNavigate } from 'react-router-dom';
 
 const WelcomePage = () => {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const WelcomePage = () => {
 
   const handleThemeSelect = (themeImage) => {
     setSelectedThemeImage(themeImage);
-    navigate(`/design2?theme=${encodeURIComponent(themeImage)}`);
+    navigate(`/quiz?theme=${encodeURIComponent(themeImage)}`);
   };
 
   return (
