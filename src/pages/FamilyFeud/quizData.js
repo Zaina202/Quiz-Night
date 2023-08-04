@@ -1,5 +1,5 @@
 
-function getFamilyFeudData() {
+export function getFamilyFeudData() {
     const data = [
         {
             question: 'اخر 8 من المبشرين بالجنة',
