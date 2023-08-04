@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './quiz.css';
 
 const MyTable = () => {
@@ -7,15 +10,37 @@ const MyTable = () => {
   const [cardStates, setCardStates] = useState(
     Array(data[currentQuestionIndex].answers.length).fill({ flipped: false })
   );
+  const navigate = useNavigate();
+  const [isLastQuestion, setIsLastQuestion] = useState(false);
+  const [currentTeam, setCurrentTeam] = useState(1); 
+  const [totalMarksTeam1, setTotalMarksTeam1] = useState(0);
+  const [totalMarksTeam2, setTotalMarksTeam2] = useState(0);
+
 
   const flipCard = (index) => {
     setCardStates((prevStates) => {
       const updatedStates = prevStates.map((state, i) => ({
-        flipped: i === index ? !state.flipped : false,
+        flipped: i === index ? !state.flipped : state.flipped,
       }));
       return updatedStates;
     });
+  
+    const mark = data[currentQuestionIndex].answers[index].mark;
+    
+    if (currentTeam === 1) {
+      const updatedTotalMarks = cardStates[index].flipped
+        ? totalMarksTeam1 - mark
+        : totalMarksTeam1 + mark;
+      setTotalMarksTeam1(updatedTotalMarks);
+    } else {
+      const updatedTotalMarks = cardStates[index].flipped
+        ? totalMarksTeam2 - mark
+        : totalMarksTeam2 + mark;
+      setTotalMarksTeam2(updatedTotalMarks);
+    }
   };
+  
+
 
   const goToNextQuestion = () => {
     if (currentQuestionIndex < data.length - 1) {
@@ -25,13 +50,41 @@ const MyTable = () => {
           flipped: false,
         })
       );
+    } else if (currentTeam === 1) {
+      setCurrentTeam(2); 
+      setCurrentQuestionIndex(0); 
+      setCardStates(
+        Array(data[0].answers.length).fill({
+          flipped: false,
+        })
+      );
+    } else {
+      setIsLastQuestion(true);
+      navigate('/result2');
     }
   };
+  const [showMessage, setShowMessage] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowMessage(true);
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 2000);
+  };
+
 
   return (
     <div>
+          <div className="total-marks">
+            Team 1: {totalMarksTeam1}  Team 2: {totalMarksTeam2}
+        </div>
+
       <table>
-      <caption>السؤال : {data[currentQuestionIndex].question} ؟</caption>
+      <caption>
+  {currentTeam === 1 ? 'Team 1: ' : 'Team 2: '}
+  {data[currentQuestionIndex].question} ؟
+</caption>
+
         <tbody>
           {data[currentQuestionIndex].answers.map((answer, index) => (
             <tr key={index}>
@@ -53,7 +106,25 @@ const MyTable = () => {
           ))}
         </tbody>
       </table>
-      <button onClick={goToNextQuestion}>السؤال التالي</button>
+      <button onClick={goToNextQuestion}>
+  {isLastQuestion
+    ? 'Finish'
+    : currentTeam === 1
+    ? 'السؤال التالي للفريق الاول'
+    : 'السؤال التالي للفريق الثاني'}
+</button>
+<button className="custom-button" onClick={handleButtonClick}>
+        <FontAwesomeIcon icon={faTimes} className="icon" />
+          <span className="button-text">إجابة خاطئة</span>
+        </button>
+        {showMessage && (
+          <div className="message-container">
+            <FontAwesomeIcon icon={faTimes} className="red-icon" />
+            <FontAwesomeIcon icon={faTimes} className="red-icon" />
+            <FontAwesomeIcon icon={faTimes} className="red-icon" />
+          </div>
+        )}
+
     </div>
   );
 };
