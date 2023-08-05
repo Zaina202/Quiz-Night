@@ -54,4 +54,17 @@
     font-size: 18px;
     font-weight: bold;
   }
+  @media (max-width: 576px) {
+    .mainContainer {
+      width: 90%; 
+      height: 100vh;
+    }
   
+    .theme {
+      width: 90%; 
+    }
+    .container{
+      height: auto;
+    }
+
+  }
