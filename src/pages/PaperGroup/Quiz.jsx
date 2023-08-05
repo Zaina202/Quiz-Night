@@ -95,6 +95,7 @@ const Quiz = () => {
 
         if (currentQuestionIndex + 1 < data[categories[currentCategoryIndex]].questions.length) {
           setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+          setShowOptions(false);
         } else {
           setShowResult(true);
         }
@@ -168,8 +169,8 @@ const Quiz = () => {
     ) : (
         <div>
           <h2 className="line">{data[categories[currentCategoryIndex]].categoryTitle}</h2>
-          <h3 style={{ textAlign: 'right' }}>السؤال {currentQuestionIndex + 1}<span className="line"></span></h3>
-          <p>{data[categories[currentCategoryIndex]].questions[currentQuestionIndex].question}<span className="line"></span></p>
+          <h3 style={{ textAlign: 'right' }}>السؤال {currentQuestionIndex + 1}</h3>
+          <p>{data[categories[currentCategoryIndex]].questions[currentQuestionIndex].question}</p>
 
           {showOptions && (
             <div className={styles['choices-container']}>

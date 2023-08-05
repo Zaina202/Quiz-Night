@@ -16,7 +16,7 @@ const WelcomePage3 = () => {
   return (
     <div className={styles.container}>
       <div className={styles.mainContainer}>
-        <h2>اختر وضع الخلفة</h2>
+        <h2>اختر وضع الخلفية</h2>
         <div className={styles.themeContainer}>
           <div
             className={styles.theme}
