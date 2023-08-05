@@ -1,6 +1,6 @@
 
 .quiz-container {
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center center;
   height: 100vh;
   display: flex;
@@ -16,7 +16,6 @@
   width: 100%;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.1); 
-  max-width: 1000px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
   margin-top: 200px;
@@ -129,4 +128,34 @@
   .wrongAnswer {
     background-color: #f44336!important; 
     color: #ffffff; 
+  }
+
+  @media (max-width: 576px) {
+    .choices-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 768px) {
+    .quiz-container > div {
+      margin-top: 80px; /* Adjust the margin for smaller screens */
+    }
+  
+    .button1,
+    .nextButton {
+      padding: 12px 24px; /* Adjust the padding for smaller screens */
+      font-size: 14px; /* Adjust the font size for smaller screens */
+    }
+  
+    .result h3 {
+      font-size: 20px; /* Adjust the font size for smaller screens */
+      margin-bottom: 15px; /* Adjust the margin for smaller screens */
+    }
+  
+    .correct-answers {
+      margin-top: 15px; /* Adjust the margin for smaller screens */
+    }
+  
+    .question-answer {
+      margin-bottom: 10px; /* Adjust the margin for smaller screens */
+    }
   }

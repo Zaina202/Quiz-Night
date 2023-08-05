@@ -51,8 +51,8 @@ const MyTable = () => {
         })
       );
     } else if (currentTeam === 1) {
-      setCurrentTeam(2); 
-      setCurrentQuestionIndex(0); 
+      setCurrentTeam(2);
+      setCurrentQuestionIndex(0);
       setCardStates(
         Array(data[0].answers.length).fill({
           flipped: false,
@@ -60,7 +60,19 @@ const MyTable = () => {
       );
     } else {
       setIsLastQuestion(true);
-      navigate('/result2', { state: { totalMarksTeam1, totalMarksTeam2 } }); 
+      navigate('/result2', { state: { totalMarksTeam1, totalMarksTeam2 } });
+    }
+  };
+
+  const getButtonText = () => {
+    if (currentQuestionIndex === data.length - 1 && currentTeam === 2) {
+      return 'النهاية';
+    } else if (currentQuestionIndex === data.length - 1 && currentTeam === 1) {
+      return 'السؤال التالي للفريق الثاني';
+    } else if (currentTeam === 1) {
+      return 'السؤال التالي للفريق الأول';
+    } else {
+      return 'السؤال التالي للفريق الثاني'; 
     }
   };
 
@@ -128,10 +140,8 @@ const MyTable = () => {
         <>
           
           
-          <button className="next-button" onClick={goToNextQuestion}>
-            {currentTeam === 1
-              ? 'السؤال التالي للفريق الاول'
-              : 'السؤال التالي للفريق الثاني'}
+          <button onClick={goToNextQuestion}>
+            {getButtonText()}
           </button>
          
         </>
@@ -182,4 +192,4 @@ function getFamilyFeudData() {
         },
     ];
     return data;
-}
+  }
