@@ -81,6 +81,7 @@
 .result {
   text-align: center;
   margin-top: 30px;
+  color: #333;
 }
 
 .result h3 {
@@ -120,4 +121,9 @@
 .nextButton:hover {
   background-color: #003d80;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 576px) {
+  .quiz-container > div {
+    margin-top: 100px;
+  }
 }
