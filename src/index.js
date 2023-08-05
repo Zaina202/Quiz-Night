@@ -10,7 +10,7 @@ import MillionaireGame from './pages/MillionaireGame/MillionaireGame';
 import ResultPage from './pages/MillionaireGame/ResultPage';
 import FamilyFeud from './pages/FamilyFeud/quiz';
 import WelcomPage3 from './pages/FamilyFeud/WelcomPage3';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import FamilyResult from './pages/FamilyFeud/ResultPage1';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,6 +24,7 @@ ReactDOM.render(
         <Route path="/welcome2" element={<WelcomePage2 />} /> {/* WelcomePage for the secound game (Who Wants To Be A Millionaire?) */}
         <Route path="/welcome3" element={<WelcomPage3 />} /> {/* WelcomePage for the therd game (familyFeud) */}
         <Route path="/result" element={<ResultPage />} /> {/* Result Page for the secound game (Who Wants To Be A Millionaire?) */}
+        <Route path="/result2" element={<FamilyResult />} /> {/* Result Page for the secound game (Who Wants To Be A Millionaire?) */}
       </Routes>
     </Router>
   </React.StrictMode>,
