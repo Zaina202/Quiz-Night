@@ -1,6 +1,17 @@
-
 table {
     border-collapse: collapse;
+    margin: 20px auto;
+  }
+  .total-marks{
+    width: 120px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 71%, rgba(0,212,255,1) 100%);    color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    text-align: center; /* Center the text horizontally */
     margin: 20px auto;
   }
 
@@ -12,19 +23,21 @@ table {
     background-color: #b5d4f8;
     border: 1px solid lightgray;
     border-radius: 10px;
+    caption-side:bottom
   }
   
   .card {
     position: relative;
     perspective: 1000px;
     width: 150px;
-    height: 40px;
+    height: 30px;
     border: 2px solid white;
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
     color: white;
-    background-color: #2c07fc;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
     font-weight: bold;
     font-size: 16px;
   }
@@ -46,7 +59,8 @@ table {
   }
   
   .front {
-    background-color: #2c07fc;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 100%, rgba(0,212,255,1) 100%);
     color: white;
   }
   
@@ -92,51 +106,3 @@ table {
     float: right;
     margin-right: 400px;
   }
-  .score-container {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-  }
-  
-  .score {
-    font-size: 24px;
-    color: red;
-  }
-  .custom-button {
-    font-size: 20px;
-    padding: 8px 16px;
-    background-color: red; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-  }
-  .custom-button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    transform: translateY(-3px);
-  }
-  .custom-button .icon {
-    margin-right: 10px; /* تحديد المسافة بين النص والأيقونة */
-    font-size: 24px;
-  }
-  
-  .message-container {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-  }
-  
-  .red-icon {
-    color: red;
-    font-size: 65px;
-    animation: fadeOut 1s ease-in-out;
-    margin: 0 5px;
-  }
-  
- 

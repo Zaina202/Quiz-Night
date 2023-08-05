@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './quiz.css';
+import ResultPage1 from './ResultPage1';
 
 const MyTable = () => {
   const data = getFamilyFeudData(); 
@@ -15,7 +16,6 @@ const MyTable = () => {
   const [currentTeam, setCurrentTeam] = useState(1); 
   const [totalMarksTeam1, setTotalMarksTeam1] = useState(0);
   const [totalMarksTeam2, setTotalMarksTeam2] = useState(0);
-
 
   const flipCard = (index) => {
     setCardStates((prevStates) => {
@@ -39,8 +39,6 @@ const MyTable = () => {
       setTotalMarksTeam2(updatedTotalMarks);
     }
   };
-  
-
 
   const goToNextQuestion = () => {
     if (currentQuestionIndex < data.length - 1) {
@@ -60,9 +58,10 @@ const MyTable = () => {
       );
     } else {
       setIsLastQuestion(true);
-      navigate('/result2');
+      navigate('/result2', { state: { totalMarksTeam1, totalMarksTeam2 } }); 
     }
   };
+
   const [showMessage, setShowMessage] = useState(false);
 
   const handleButtonClick = () => {
@@ -72,19 +71,18 @@ const MyTable = () => {
     }, 2000);
   };
 
-
   return (
     <div>
-          <div className="total-marks">
-            Team 1: {totalMarksTeam1}  Team 2: {totalMarksTeam2}
-        </div>
-
+      <div className="total-marks">
+        Team 1: {totalMarksTeam1}  Team 2: {totalMarksTeam2}
+      </div>
+  
       <table>
-      <caption>
-  {currentTeam === 1 ? 'Team 1: ' : 'Team 2: '}
-  {data[currentQuestionIndex].question} ؟
-</caption>
-
+        <caption>
+          {currentTeam === 1 ? 'Team 1: ' : 'Team 2: '}
+          {data[currentQuestionIndex].question} ؟
+        </caption>
+  
         <tbody>
           {data[currentQuestionIndex].answers.map((answer, index) => (
             <tr key={index}>
@@ -98,37 +96,40 @@ const MyTable = () => {
                 </div>
               </td>
               <td className="card empty-card">
-              <span className="answer-mark">
-        {cardStates[index].flipped && `${answer.mark}`}
-      </span>
+                <span className="answer-mark">
+                  {cardStates[index].flipped && `${answer.mark}`}
+                </span>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <button onClick={goToNextQuestion}>
-  {isLastQuestion
-    ? 'Finish'
-    : currentTeam === 1
-    ? 'السؤال التالي للفريق الاول'
-    : 'السؤال التالي للفريق الثاني'}
-</button>
-<button className="custom-button" onClick={handleButtonClick}>
-        <FontAwesomeIcon icon={faTimes} className="icon" />
-          <span className="button-text">إجابة خاطئة</span>
-        </button>
-        {showMessage && (
-          <div className="message-container">
-            <FontAwesomeIcon icon={faTimes} className="red-icon" />
-            <FontAwesomeIcon icon={faTimes} className="red-icon" />
-            <FontAwesomeIcon icon={faTimes} className="red-icon" />
-          </div>
-        )}
-
+  
+      {isLastQuestion ? (
+        <ResultPage1 totalMarksTeam1={totalMarksTeam1} totalMarksTeam2={totalMarksTeam2} />
+      ) : (
+        <>
+          <button onClick={goToNextQuestion}>
+            {currentTeam === 1
+              ? 'السؤال التالي للفريق الاول'
+              : 'السؤال التالي للفريق الثاني'}
+          </button>
+          <button className="custom-button" onClick={handleButtonClick}>
+            <FontAwesomeIcon icon={faTimes} className="icon" />
+            <span className="button-text"> إجابة خاطئة</span>
+          </button>
+          {showMessage && (
+            <div className="message-container">
+              <FontAwesomeIcon icon={faTimes} className="red-icon" />
+              <FontAwesomeIcon icon={faTimes} className="red-icon" />
+              <FontAwesomeIcon icon={faTimes} className="red-icon" />
+            </div>
+          )}
+        </>
+      )}
     </div>
-  );
+  );  
 };
-
 export default MyTable;
 
 function getFamilyFeudData() {
