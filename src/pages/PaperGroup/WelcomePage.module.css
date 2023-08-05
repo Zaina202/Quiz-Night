@@ -1,22 +1,23 @@
 .container {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #cfebf8;
-  }
-  
-  .mainContainer {
-    background-color: #ffffff8f;
-    color: #333;
-    text-align: center;
-    height: 70vh;
-    width: 60%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-  }
+  margin: 0;
+  min-height: 100vh; /* Changed height to min-height to accommodate smaller screens */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #cfebf8;
+}
+
+.mainContainer {
+  background-color: #ffffff8f;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 60%;
+  max-width: 800px; /* Added a maximum width to prevent the container from becoming too wide */
+  margin: 20px; /* Added margin for spacing on smaller screens */
+}
   
   .themeContainer {
     display: flex;
@@ -53,5 +54,17 @@
     border-radius: 10px 10px 0 0;
     font-size: 18px;
     font-weight: bold;
+  }
+  @media (max-width: 768px) {
+    .mainContainer {
+      width: 80%; /* Adjust the width for smaller screens */
+    }
+    .theme{
+      width: 50%;
+    }
+  
+    h1 {
+      display: none; /* Hide the h1 text on smaller screens */
+    }
   }
   

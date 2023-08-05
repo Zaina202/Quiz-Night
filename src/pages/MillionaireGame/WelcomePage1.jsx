@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../PaperGroup/WelcomePage.module.css';
 import style from './WelcomePage1.module.css';
+import paperGroupImage from '../../images/paperGroup.jpg';
 
 
 
 const WelcomePage1 = () => {
   return (
     <div className={styles.container}>
-      <h1>Welcom to Quiz Fast contast ... Share in different contsats to test your self !</h1>
+      <h1>Welcome to Quiz Fast contast ... Share in different contsats to test your self !</h1>
       <div className={styles.mainContainer}>
         <h2>Choose the type of game</h2>
         <div className={styles.themeContainer}>

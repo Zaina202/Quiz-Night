@@ -56,11 +56,11 @@ background-color: #9cb5db;
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
   
-  .cardFront {
-    background-color: #4f7399;
-  }
+ 
+
   
   .cardBack {
     background-color: #7690d6;
@@ -71,3 +71,10 @@ background-color: #9cb5db;
     color: white;
     margin: 5px;
   }
+  .cardImage {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+  
