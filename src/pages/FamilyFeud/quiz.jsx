@@ -6,6 +6,7 @@ import './quiz.css';
 import ResultPage1 from './ResultPage1';
 
 const MyTable = () => {
+    
   const data = getFamilyFeudData(); 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [cardStates, setCardStates] = useState(
@@ -39,6 +40,7 @@ const MyTable = () => {
       setTotalMarksTeam2(updatedTotalMarks);
     }
   };
+  
 
   const goToNextQuestion = () => {
     if (currentQuestionIndex < data.length - 1) {
@@ -72,9 +74,23 @@ const MyTable = () => {
   };
 
   return (
-    <div>
+    <div className='body'>
+         {showMessage && (
+            <div className="message-container">
+                <div className='three-x'>
+              <h1 className='redX'>X</h1>
+              <h1 className='redX'>X</h1>
+              <h1 className='redX'>X</h1>
+              </div>
+            </div>
+          )}
+        <button className="custom-button" onClick={handleButtonClick}>
+            <FontAwesomeIcon icon={faTimes} className="icon" />
+            <span className="button-text"> إجابة خاطئة</span>
+          </button>
+        <div className='table-container'>
       <div className="total-marks">
-        Team 1: {totalMarksTeam1}  Team 2: {totalMarksTeam2}
+        Team 1: {totalMarksTeam1}  |  Team 2: {totalMarksTeam2}
       </div>
   
       <table>
@@ -104,27 +120,20 @@ const MyTable = () => {
           ))}
         </tbody>
       </table>
+      </div>
   
       {isLastQuestion ? (
         <ResultPage1 totalMarksTeam1={totalMarksTeam1} totalMarksTeam2={totalMarksTeam2} />
       ) : (
         <>
-          <button onClick={goToNextQuestion}>
+          
+          
+          <button className="next-button" onClick={goToNextQuestion}>
             {currentTeam === 1
               ? 'السؤال التالي للفريق الاول'
               : 'السؤال التالي للفريق الثاني'}
           </button>
-          <button className="custom-button" onClick={handleButtonClick}>
-            <FontAwesomeIcon icon={faTimes} className="icon" />
-            <span className="button-text"> إجابة خاطئة</span>
-          </button>
-          {showMessage && (
-            <div className="message-container">
-              <FontAwesomeIcon icon={faTimes} className="red-icon" />
-              <FontAwesomeIcon icon={faTimes} className="red-icon" />
-              <FontAwesomeIcon icon={faTimes} className="red-icon" />
-            </div>
-          )}
+         
         </>
       )}
     </div>

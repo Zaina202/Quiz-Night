@@ -1,3 +1,4 @@
+
 .quiz-container {
   background-size: cover;
   background-position: center center;
@@ -7,118 +8,86 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #f0f0f0;
+  background-color: #292c35; 
 }
 
 .quiz-container > div {
-  margin-top: 100px;
-  width: 100%; 
+  margin-top: 50px;
+  width: 100%;
   padding: 20px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.1); 
   max-width: 1000px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+  margin-top: 200px;
+
 }
 
 .choices-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  grid-gap: 5px; 
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px; 
+  margin-top: 20px;
 }
 
 .choiceItem {
   position: relative;
   width: 90%;
-  padding: 8px;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  padding: 10px 10px 10px 0;
-  z-index: 2;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* .choiceItem::after{
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(100% - 5px);
-  height: 2px;
-  background: white;
-  content: "";
-  width: 100vw; 
-  transform: translateX(-50%);
-  z-index: 1;
-} */
-.choiceNumber{
-  color: rgb(255, 217, 0);
+.choiceItem:hover {
+  background-color: rgba(255, 255, 255, 1); 
+  transform: scale(1.05); 
+}
+
+.choiceNumber {
+  color: #ffd900; 
   font-weight: bold;
   text-align: left;
 }
 
 .quiz-container h2 {
-  position: relative;
-  background-color: white;
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #555;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  padding: 10px;
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #ffd900;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
 }
 
-
 .quiz-container h3 {
-  position: relative;
-  background-color: white;
   font-size: smaller;
   margin-bottom: 10px;
-  color: #555;
-  border: 1px solid #ccc;
-  padding: 5px;
-  border-radius: 10px;
-  text-align: right; 
-  width: max-content; 
-  margin-left: auto; 
+  color: #fff; 
+  background-color: #333; 
+  padding: 5px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-left: auto;
 }
 
 .quiz-container p {
-  position: relative;
-  background-color: white;
-  margin-bottom: 10px;
-  color: #333;
-  border: 1px solid #ccc;
-  padding: 30px;
-  border-radius: 30px;
-}
-
-
-.answersContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; 
-}
-
-.answer {
-  width: calc(50% - 5px); 
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 5px; 
-  transition: background-color 0.3s ease;
-}
-
-.answer:hover {
-  background-color: #f0f0f0;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff; 
 }
 
 .result {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .result h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #555;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffd900; /* Golden yellow color for result title */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow effect */
 }
 
 .correct-answers {
@@ -127,44 +96,28 @@
 }
 
 .question-answer {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  color: #ffd900; /* Golden yellow color for question number in result */
 }
-.button1{
+
+.button1,
+.nextButton {
   display: inline-block;
   padding: 15px 30px;
   font-size: 16px;
   font-weight: bold;
-  color: #ffffff;
+  color: #fff;
   background-color: #0056b3;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
-  
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-  .button1:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  }
-  .nextButton{
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #0056b3;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: center;
-    margin-top: 50px;
-    margin-right:-20px ;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  .nextButton:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 
-  }
-
+.button1:hover,
+.nextButton:hover {
+  background-color: #003d80;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
