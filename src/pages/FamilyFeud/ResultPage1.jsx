@@ -45,7 +45,7 @@ const ResultPage1 = () => {
         </div>
       </div>
       <div className={`winner ${winningTeam ? 'show' : ''}`}>
-        The winning Team : {winningTeam}
+        Congratulations to {winningTeam}  &#129351;
       </div>
     </div>
   );
