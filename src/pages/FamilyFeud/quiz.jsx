@@ -6,15 +6,14 @@ import './quiz.css';
 import ResultPage1 from './ResultPage1';
 
 const MyTable = () => {
-    
-  const data = getFamilyFeudData(); 
+  const data = getFamilyFeudData();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [cardStates, setCardStates] = useState(
     Array(data[currentQuestionIndex].answers.length).fill({ flipped: false })
   );
   const navigate = useNavigate();
   const [isLastQuestion, setIsLastQuestion] = useState(false);
-  const [currentTeam, setCurrentTeam] = useState(1); 
+  const [currentTeam, setCurrentTeam] = useState(1);
   const [totalMarksTeam1, setTotalMarksTeam1] = useState(0);
   const [totalMarksTeam2, setTotalMarksTeam2] = useState(0);
 
@@ -25,9 +24,9 @@ const MyTable = () => {
       }));
       return updatedStates;
     });
-  
+
     const mark = data[currentQuestionIndex].answers[index].mark;
-    
+
     if (currentTeam === 1) {
       const updatedTotalMarks = cardStates[index].flipped
         ? totalMarksTeam1 - mark
@@ -40,7 +39,6 @@ const MyTable = () => {
       setTotalMarksTeam2(updatedTotalMarks);
     }
   };
-  
 
   const goToNextQuestion = () => {
     if (currentQuestionIndex < data.length - 1) {
@@ -51,8 +49,8 @@ const MyTable = () => {
         })
       );
     } else if (currentTeam === 1) {
-      setCurrentTeam(2); 
-      setCurrentQuestionIndex(0); 
+      setCurrentTeam(2);
+      setCurrentQuestionIndex(0);
       setCardStates(
         Array(data[0].answers.length).fill({
           flipped: false,
@@ -60,10 +58,21 @@ const MyTable = () => {
       );
     } else {
       setIsLastQuestion(true);
-      navigate('/result2', { state: { totalMarksTeam1, totalMarksTeam2 } }); 
+      navigate('/result2', { state: { totalMarksTeam1, totalMarksTeam2 } });
     }
   };
 
+  const getButtonText = () => {
+    if (currentQuestionIndex === data.length - 1 && currentTeam === 2) {
+      return 'النهاية';
+    } else if (currentQuestionIndex === data.length - 1 && currentTeam === 1) {
+      return 'السؤال التالي للفريق الثاني';
+    } else if (currentTeam === 1) {
+      return 'السؤال التالي للفريق الأول';
+    } else {
+      return 'السؤال التالي للفريق الثاني'; 
+    }
+  };
   const [showMessage, setShowMessage] = useState(false);
 
   const handleButtonClick = () => {
@@ -74,31 +83,17 @@ const MyTable = () => {
   };
 
   return (
-    <div className='body'>
-         {showMessage && (
-            <div className="message-container">
-                <div className='three-x'>
-              <h1 className='redX'>X</h1>
-              <h1 className='redX'>X</h1>
-              <h1 className='redX'>X</h1>
-              </div>
-            </div>
-          )}
-        <button className="custom-button" onClick={handleButtonClick}>
-            <FontAwesomeIcon icon={faTimes} className="icon" />
-            <span className="button-text"> إجابة خاطئة</span>
-          </button>
-        <div className='table-container'>
+    <div>
       <div className="total-marks">
-        Team 1: {totalMarksTeam1}  |  Team 2: {totalMarksTeam2}
+        Team 1: {totalMarksTeam1}  Team 2: {totalMarksTeam2}
       </div>
-  
+
       <table>
         <caption>
           {currentTeam === 1 ? 'Team 1: ' : 'Team 2: '}
           {data[currentQuestionIndex].question} ؟
         </caption>
-  
+
         <tbody>
           {data[currentQuestionIndex].answers.map((answer, index) => (
             <tr key={index}>
@@ -120,25 +115,31 @@ const MyTable = () => {
           ))}
         </tbody>
       </table>
-      </div>
-  
+
       {isLastQuestion ? (
         <ResultPage1 totalMarksTeam1={totalMarksTeam1} totalMarksTeam2={totalMarksTeam2} />
       ) : (
         <>
-          
-          
-          <button className="next-button" onClick={goToNextQuestion}>
-            {currentTeam === 1
-              ? 'السؤال التالي للفريق الاول'
-              : 'السؤال التالي للفريق الثاني'}
+          <button onClick={goToNextQuestion}>
+            {getButtonText()}
           </button>
-         
+          <button className="custom-button" onClick={handleButtonClick}>
+            <FontAwesomeIcon icon={faTimes} className="icon" />
+            <span className="button-text"> إجابة خاطئة</span>
+          </button>
+          {showMessage && (
+            <div className="message-container">
+              <FontAwesomeIcon icon={faTimes} className="red-icon" />
+              <FontAwesomeIcon icon={faTimes} className="red-icon" />
+              <FontAwesomeIcon icon={faTimes} className="red-icon" />
+            </div>
+          )}
         </>
       )}
     </div>
-  );  
+  );
 };
+
 export default MyTable;
 
 function getFamilyFeudData() {
