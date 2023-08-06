@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation,  useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRedoAlt } from '@fortawesome/free-solid-svg-icons';
+
 import './ResultPage.css';
 
 const ResultPage1 = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { totalMarksTeam1, totalMarksTeam2 } = location.state || {};
 
@@ -47,6 +51,8 @@ const ResultPage1 = () => {
       <div className={`winner ${winningTeam ? 'show' : ''}`}>
         Congratulations to {winningTeam}  &#129351;
       </div>
+      <button onClick={() =>navigate('/')} ><FontAwesomeIcon icon={faRedoAlt} className="icon" /></button>
+
     </div>
   );
 };

@@ -118,7 +118,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 100%, rgba
   }
   button{
     height: 50px;
-    margin: auto 100px;
+    margin: auto ;
     border-radius: 30px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
@@ -127,6 +127,7 @@ button.next-button {
     background-color:#575757;
     color: white;
     border: none;
+    margin:auto ;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
@@ -142,6 +143,7 @@ button.next-button {
     background-color: red;
     color: white;
     border: none;
+    margin:auto ;
     padding: 10px 20px;
     cursor: pointer;
     font-weight: bold;
