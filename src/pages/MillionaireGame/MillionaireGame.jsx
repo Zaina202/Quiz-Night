@@ -58,25 +58,25 @@ const MillionaireGame = () => {
           {!showResult && (
             <>
               <div
-                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer1 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer1 ? style.correctAnswer : '')) : ''}`}
+                className={`${style.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer1 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer1 ? style.correctAnswer : '')) : ''}`}
                 onClick={() => handleAnswerSelection(currentQuestion.answer1)}
               >
                 {currentQuestion.answer1}
               </div>
               <div
-                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer2 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer2 ? style.correctAnswer : '')) : ''}`}
+                className={`${style.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer2 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer2 ? style.correctAnswer : '')) : ''}`}
                 onClick={() => handleAnswerSelection(currentQuestion.answer2)}
               >
                 {currentQuestion.answer2}
               </div>
               <div
-                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer3 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer3 ? style.correctAnswer : '')) : ''}`}
+                className={`${style.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer3 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer3 ? style.correctAnswer : '')) : ''}`}
                 onClick={() => handleAnswerSelection(currentQuestion.answer3)}
               >
                 {currentQuestion.answer3}
               </div>
               <div
-                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer4 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer4 ? style.correctAnswer : '')) : ''}`}
+                className={`${style.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer4 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer4 ? style.correctAnswer : '')) : ''}`}
                 onClick={() => handleAnswerSelection(currentQuestion.answer4)}
               >
                 {currentQuestion.answer4}
