@@ -1,0 +1,8 @@
+.dark-mode {
+    background-color: #14161c; /* Dark background color */
+    color: #706f6f; /* Light text color */
+  }
+  .dark-mode div{
+    background-color: #14161c;
+  }
+

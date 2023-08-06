@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { useLocation , useNavigate } from 'react-router-dom';
 import styles from './Quiz.module.css';
+import darkStyles from './QuizDark.module.css';
+import Design2 from '../images/Design2.png';
+
+
 
 const getPaperGroupData = () => {
   const data = {
@@ -78,10 +82,14 @@ const Quiz = () => {
   const [currentOptionIndex, setCurrentOptionIndex] = useState(0);
   const [showOptions, setShowOptions] = useState(false);
   const [isLastRound, setIsLastRound] = useState(false); 
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const selectedThemeImage = searchParams.get('theme');
   const navigate = useNavigate();
+
+  const darkMode = selectedThemeImage === Design2;
+
 
   const data = getPaperGroupData();
   const categories = Object.keys(data);
@@ -155,10 +163,9 @@ const Quiz = () => {
 
   return (
     <div
-    className={styles['quiz-container']}
-    style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}
-    onClick={showRoundTitle ? handleStartRound : handleNextQuestion}
-  >
+      className={`${styles['quiz-container']} ${darkMode ? darkStyles['dark-mode'] : ''}`}
+      style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}
+      onClick={showRoundTitle ? handleStartRound : handleNextQuestion} >
     {showResult ? (
       renderResult()
     ) : showRoundTitle ? (
