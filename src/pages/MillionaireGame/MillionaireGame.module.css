@@ -85,8 +85,8 @@
 .result h3 {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #ffd900; /* Golden yellow color for result title */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow effect */
+  color: #ffd900; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .correct-answers {
@@ -96,7 +96,7 @@
 
 .question-answer {
   margin-bottom: 15px;
-  color: #ffd900; /* Golden yellow color for question number in result */
+  color: #ffd900; 
 }
 
 .button1,
@@ -134,28 +134,29 @@
     .choices-container {
       grid-template-columns: 1fr;
     }
+
   }
   @media (max-width: 768px) {
     .quiz-container > div {
-      margin-top: 80px; /* Adjust the margin for smaller screens */
+      margin-top: 80px; 
     }
   
     .button1,
     .nextButton {
-      padding: 12px 24px; /* Adjust the padding for smaller screens */
-      font-size: 14px; /* Adjust the font size for smaller screens */
+      padding: 12px 24px; 
+      font-size: 14px; 
     }
   
     .result h3 {
-      font-size: 20px; /* Adjust the font size for smaller screens */
-      margin-bottom: 15px; /* Adjust the margin for smaller screens */
+      font-size: 20px; 
+      margin-bottom: 15px;
     }
   
     .correct-answers {
-      margin-top: 15px; /* Adjust the margin for smaller screens */
+      margin-top: 15px; 
     }
   
     .question-answer {
-      margin-bottom: 10px; /* Adjust the margin for smaller screens */
+      margin-bottom: 10px; 
     }
   }

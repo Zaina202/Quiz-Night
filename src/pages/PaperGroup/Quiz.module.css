@@ -116,6 +116,9 @@
   text-decoration: none;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+.Div1 {
+  text-align: center;
+}
 
 .button1:hover,
 .nextButton:hover {
@@ -125,5 +128,14 @@
 @media (max-width: 576px) {
   .quiz-container > div {
     margin-top: 100px;
+  }
+  .choices-container {
+    grid-template-columns: 1fr; /* Change to a single column layout for smaller screens */
+  }
+
+  .choiceItem {
+    width: 100%; /* Set the width to 100% for smaller screens */
+    padding: 8px; /* Adjust the padding for smaller screens */
+    font-size: 14px; /* Adjust the font size for smaller screens */
   }
 }
