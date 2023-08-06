@@ -1,6 +1,6 @@
 .dark-mode {
-    background-color: #14161c; /* Dark background color */
-    color: #fcfafa; /* Light text color */
+    background-color: #14161c!important; 
+    color: #fcfafa; 
   }
   .dark-mode div{
     background-color: #14161c;

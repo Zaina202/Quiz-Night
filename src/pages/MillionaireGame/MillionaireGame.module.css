@@ -100,9 +100,10 @@
   color: #ffd900; 
 }
 
-.button1,
-.nextButton {
-  display: inline-block;
+
+.button2 {
+  margin:10px auto;
+  width: 150px;
   padding: 15px 30px;
   font-size: 16px;
   font-weight: bold;
@@ -116,8 +117,7 @@
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.button1:hover,
-.nextButton:hover {
+.button2:hover {
   background-color: #003d80;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }

@@ -23,9 +23,14 @@
 
 }
 
+.container2{
+  border-radius: 20px;
+  background-color: transparent;
+}
+
 .choices-container {
   display: grid;
-  background-color: rgba(255, 255, 255, 0.8); 
+  background-color: rgba(255, 255, 255, 0); 
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px; 
   margin-top: 20px;
@@ -45,6 +50,7 @@
 
 .choiceItem:hover {
   background-color: rgba(255, 255, 255, 1); 
+  color: black;
   transform: scale(1.05); 
 }
 

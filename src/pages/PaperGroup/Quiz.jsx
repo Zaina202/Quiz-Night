@@ -166,6 +166,7 @@ const Quiz = () => {
       className={`${styles['quiz-container']} ${darkMode ? darkStyles['dark-mode'] : ''}`}
       style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}
       onClick={showRoundTitle ? handleStartRound : handleNextQuestion} >
+        <div className='container2'>
     {showResult ? (
       renderResult()
     ) : showRoundTitle ? (
@@ -175,7 +176,7 @@ const Quiz = () => {
       </div>
     ) : (
         <div>
-          <h2 className="line">{data[categories[currentCategoryIndex]].categoryTitle}</h2>
+          <h2 >{data[categories[currentCategoryIndex]].categoryTitle}</h2>
           <h3 style={{ textAlign: 'right' }}>السؤال {currentQuestionIndex + 1}</h3>
           <p>{data[categories[currentCategoryIndex]].questions[currentQuestionIndex].question}</p>
 
@@ -215,6 +216,7 @@ const Quiz = () => {
           )}
         </div>
       )}
+      </div>
     </div>
   );
 };

@@ -84,14 +84,15 @@ const MillionaireGame = () => {
               >
                 {currentQuestion.answer4}
               </div>
-              <div className={styles.Div1}>
-                <button onClick={handleNextQuestion} className={styles['button1']}>
-                  {currentQuestionIndex + 1 < questions.length ? 'Next Question' : 'Finish'}
-                </button>
-              </div>
+               
             </>
+            
           )}
+           
         </div>
+        <button onClick={handleNextQuestion} className={style['button2']}>
+                  {currentQuestionIndex + 1 < questions.length ? 'السوال التالي' : 'النهاية'}
+                </button>
       </div>
     );
   };
@@ -102,6 +103,7 @@ const MillionaireGame = () => {
     <div className={`${styles['quiz-container']} ${darkMode ? darkStyles['dark-mode'] : ''}`}
      style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}>
       {!showResult ? renderQuestion() : <ResultPage score={score} />}
+      
     </div>
   );
 };
