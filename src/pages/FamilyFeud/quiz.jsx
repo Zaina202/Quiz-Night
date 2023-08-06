@@ -140,7 +140,7 @@ const MyTable = () => {
         <>
           
           
-          <button onClick={goToNextQuestion}>
+          <button onClick={goToNextQuestion} className="next-button" >
             {getButtonText()}
           </button>
          
