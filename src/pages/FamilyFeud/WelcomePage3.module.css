@@ -1,0 +1,48 @@
+
+.container {
+    background-image: url('https://www.familyfeud.com/wp-content/uploads/2017/09/familyfeud-fb.jpg');
+    background-size: 100% 100%; 
+    background-position: center center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .btn-container{
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+  }
+  .button1{
+    display: inline-block;
+    padding: 10px 50px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #cfbb08;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+    .button1:hover {
+      box-shadow: 0 0 10px rgba(245, 234, 234, 0.8);
+    }
+    @media screen and (max-width: 768px) {
+        .btn-container {
+          bottom: 5%;
+        }
+      }
+      
+      @media screen and (max-width: 480px) {
+        .btn-container {
+          bottom: 5%;
+        }
+      }
