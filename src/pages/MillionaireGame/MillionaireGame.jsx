@@ -3,7 +3,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { getWhosGoingToBeAMillinorData } from './quizData';
 import styles from '../PaperGroup/Quiz.module.css';
 import style from './MillionaireGame.module.css';
+import darkStyles from '../PaperGroup/QuizDark.module.css';
 import ResultPage from './ResultPage';
+import Design2 from '../images/Design2.png';
 
 const MillionaireGame = () => {
   const location = useLocation();
@@ -16,6 +18,7 @@ const MillionaireGame = () => {
   const [showResult, setShowResult] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState({ correct: 0, wrong: 0 });
+  const darkMode = selectedThemeImage === Design2;
 
   const handleAnswerSelection = (answer) => {
     if (!showResult) {
@@ -96,7 +99,8 @@ const MillionaireGame = () => {
   
 
   return (
-    <div className={styles['quiz-container']} style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}>
+    <div className={`${styles['quiz-container']} ${darkMode ? darkStyles['dark-mode'] : ''}`}
+     style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}>
       {!showResult ? renderQuestion() : <ResultPage score={score} />}
     </div>
   );

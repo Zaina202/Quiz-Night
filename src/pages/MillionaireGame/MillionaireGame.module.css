@@ -43,6 +43,7 @@
 
 .choiceItem:hover {
   background-color: rgba(255, 255, 255, 1); 
+  color: black;
   transform: scale(1.05); 
 }
 
