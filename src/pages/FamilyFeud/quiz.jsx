@@ -139,7 +139,6 @@ const MyTable = () => {
       ) : (
         <>
           
-          
           <button onClick={goToNextQuestion} className="next-button" >
             {getButtonText()}
           </button>

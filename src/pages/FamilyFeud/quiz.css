@@ -1,6 +1,7 @@
 .body{
     display: flex;
     background-color: #b3b3b3;
+    height: 100vh;
   }
 .table-container{
     background-color: #f5f6f8b7;
@@ -197,9 +198,11 @@ button.next-button {
     font-size: 12px;
   }
   
-  button {
-    margin: 10px 50px;
-    font-size: 12px;
+  button {  
+    width: 90%; /* Set the button width to fit the screen */
+    margin: 200px auto; /* Center the button horizontally */
+    font-size: 14px; 
+    padding: auto;/* Decrease font size for smaller screens */
   }
   
   .message-container {
