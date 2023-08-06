@@ -20,10 +20,10 @@ const WelcomePage = () => {
         <div className={styles.themeContainer}>
           <div
             className={styles.theme}
-            id="night-theme"
+            id="day-theme"
             onClick={() => handleThemeSelect(Design1)}
           >
-            <img src={Design1} alt="night" className={styles.image} />
+            <img src={Design1} alt="day" className={styles.image} />
             <div className={styles.title}>
               <h4>
                 <i className="fas fa-cloud-sun"></i> <b>Quiz Day</b>
@@ -32,10 +32,10 @@ const WelcomePage = () => {
           </div>
           <div
             className={styles.theme}
-            id="day-theme"
+            id="night-theme"
             onClick={() => handleThemeSelect(Design2)}
           >
-            <img src={Design2} alt="day" className={styles.image} />
+            <img src={Design2} alt="night" className={styles.image} />
             <div className={styles.title}>
               <h4>
                 <i className="fas fa-moon"></i> <b>Quiz Night</b>

@@ -3,7 +3,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { getWhosGoingToBeAMillinorData } from './quizData';
 import styles from '../PaperGroup/Quiz.module.css';
 import style from './MillionaireGame.module.css';
+import darkStyles from '../PaperGroup/QuizDark.module.css';
 import ResultPage from './ResultPage';
+import Design2 from '../images/Design2.png';
 
 const MillionaireGame = () => {
   const location = useLocation();
@@ -16,6 +18,7 @@ const MillionaireGame = () => {
   const [showResult, setShowResult] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [score, setScore] = useState({ correct: 0, wrong: 0 });
+  const darkMode = selectedThemeImage === Design2;
 
   const handleAnswerSelection = (answer) => {
     if (!showResult) {
@@ -58,37 +61,38 @@ const MillionaireGame = () => {
           {!showResult && (
             <>
               <div
-                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer1 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer1 ? style.correctAnswer : '')) : ''}`}
+                className={`${style.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer1 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer1 ? style.correctAnswer : '')) : ''}`}
                 onClick={() => handleAnswerSelection(currentQuestion.answer1)}
               >
                 {currentQuestion.answer1}
               </div>
               <div
-                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer2 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer2 ? style.correctAnswer : '')) : ''}`}
+                className={`${style.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer2 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer2 ? style.correctAnswer : '')) : ''}`}
                 onClick={() => handleAnswerSelection(currentQuestion.answer2)}
               >
                 {currentQuestion.answer2}
               </div>
               <div
-                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer3 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer3 ? style.correctAnswer : '')) : ''}`}
+                className={`${style.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer3 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer3 ? style.correctAnswer : '')) : ''}`}
                 onClick={() => handleAnswerSelection(currentQuestion.answer3)}
               >
                 {currentQuestion.answer3}
               </div>
               <div
-                className={`${styles.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer4 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer4 ? style.correctAnswer : '')) : ''}`}
+                className={`${style.choiceItem} ${isAnswered ? (selectedAnswer === currentQuestion.answer4 ? (isCorrect ? style.correctAnswer : style.wrongAnswer) : (currentQuestion.correctAnswer === currentQuestion.answer4 ? style.correctAnswer : '')) : ''}`}
                 onClick={() => handleAnswerSelection(currentQuestion.answer4)}
               >
                 {currentQuestion.answer4}
               </div>
-              <div>
-                <button onClick={handleNextQuestion} className={styles.nextButton}>
-                  {currentQuestionIndex + 1 < questions.length ? 'Next Question' : 'Finish'}
-                </button>
-              </div>
+               
             </>
+            
           )}
+           
         </div>
+        <button onClick={handleNextQuestion} className={style['button2']}>
+                  {currentQuestionIndex + 1 < questions.length ? 'السوال التالي' : 'النهاية'}
+                </button>
       </div>
     );
   };
@@ -96,8 +100,10 @@ const MillionaireGame = () => {
   
 
   return (
-    <div className={styles['quiz-container']} style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}>
+    <div className={`${styles['quiz-container']} ${darkMode ? darkStyles['dark-mode'] : ''}`}
+     style={{ backgroundImage: selectedThemeImage ? `url(${selectedThemeImage})` : '' }}>
       {!showResult ? renderQuestion() : <ResultPage score={score} />}
+      
     </div>
   );
 };
